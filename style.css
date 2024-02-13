@@ -581,6 +581,7 @@ footer {
     background-color: transparent;
     color: white;
     border: none;
+    display: flex;
   }
   .contact{
     display: flex;
