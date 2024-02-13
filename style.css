@@ -16,16 +16,17 @@ body {
 }
 
 .logo {
-  width: 150px;
+  width: 130px;
 }
 .navbar .section-center{
   display: flex;
   justify-content: space-between;
+  /* gap: 1rem; */
 }
 .nav-header {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 /* Hamburger Icon Styles */
@@ -134,7 +135,7 @@ body {
 
 #sidebar p {
   font-weight: lighter;
-  color: #555;
+  color:black;
 }
 
 #sidebar::-webkit-scrollbar {
@@ -398,6 +399,12 @@ ul li {
   background-color: #f6f6fa;
   padding: 4rem 0;
 }
+.contact{
+  display: none;
+}
+.book select{
+  display: none;
+}
 .section {
   display: flex;
   flex-direction: column;
@@ -463,6 +470,9 @@ footer {
 }
 /* Media Queries */
 @media screen and (min-width: 1100px) {
+  .nav-header{
+    gap: 2rem;
+  }
   .right-side{
     position: fixed;
     top:100px;
