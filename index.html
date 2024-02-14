@@ -151,28 +151,102 @@ Call. 68689888</p>
     <div id="modal-container">
       <div id="modal-content">
         <span id="close-btn" onclick="closeModal()">&times;</span>
-        <h2>Modal Content</h2>
-        <p>This is a sample modal content.</p>
-      </div>
+        <div class="calendar-container">
+        <div class="calendar">
+            <div class="month-header"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="prev">&lt; Prev</button>
+            <button class="next">Next &gt;</button>
+        </div>
+        <div class="calendar">
+            <div class="month-header"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="prev">&lt; Prev</button>
+            <button class="next">Next &gt;</button>
+        </div>
     </div>
+    </div>
+      </div>
   <!-- hero -->
   <section class="hero">
     <div class="hero-center">
     <div class="con1">
-      <img src="./images/con1im.jpeg"/>
+      <img src="./images/con1im.jpeg" id="openGalleryBtn"/>
     </div>
     <div class="con2">
        <div class="img1">
-        <img src="./images/im2.jpeg"/>
-        <img src="./images/im3.jpeg"/>
+        <img src="./images/im2.jpeg" id="openGalleryBtn"/>
+        <img src="./images/im3.jpeg" id="openGalleryBtn"/>
        </div>
         <div class="img2">
-          <img src="./images/im4.jpeg"/>
-          <img src="./images/im5.jpeg"/>
+          <img src="./images/im4.jpeg" id="openGalleryBtn"/>
+          <img src="./images/im5.jpeg" id="openGalleryBtn"/>
         </div>
     </div>
     </div>
   </section>
+  <!-- hero-modal -->
+  <!-- <button id="openGalleryBtn">Open Gallery</button> -->
+
+<!-- The Modal -->
+<div id="galleryModal" class="modal">
+  <div class="modal-navbar">
+        <div class="left-icons">
+            <!-- Left Navbar Icons -->
+            <div class="icon"><span id="imageNumber" class="image-number"></span></div>
+        </div>
+
+        <div class="right-icons">
+            <!-- Right Navbar Icons -->
+            <div class="icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+            <div class="icon"><i class="fa fa-clone" aria-hidden="true"></i></div>
+            <div class="icon"><i class="fa fa-search-minus" aria-hidden="true"></i></div>
+            <div class="icon"><i class="fa fa-search-plus" aria-hidden="true"></i></div>
+            <div class="icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+            <div class="icon"><i class="fas fa-download"></i></div>
+            <div class="icon"><i class="close fas fa-times" id="closeGallery"></i></div>
+        </div>
+    </div>
+    <div class="modal-content">
+        <div class="slider-container">
+            <div id="imageSlider" class="slider">
+                <!-- Images will be added dynamically using JavaScript -->
+            </div>
+        </div>
+        <div id="thumbnailContainer" class="thumbnail-container"></div>
+    </div>
+                <div class="controls">
+                <button id="prevBtn" class="control-btn" onclick="prevSlide()">❮</button>
+                <button id="nextBtn" class="control-btn" onclick="nextSlide()">❯</button>
+            </div>
+    <!-- Add this div to your existing modal content -->
+</div>
     <!-- section-1 -->
     <section class="section-1">
       <div class="left-side">

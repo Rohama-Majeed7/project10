@@ -44,3 +44,143 @@ toggleBtn.addEventListener("click", function () {
 if (content.scrollHeight > content.clientHeight) {
   toggleBtn.style.display = "block";
 }
+
+// calendar
+document.addEventListener("DOMContentLoaded", function () {
+  const calendars = document.querySelectorAll(".calendar");
+
+  calendars.forEach((calendar, index) => {
+    const currentDate = new Date();
+    let currentMonth = currentDate.getMonth() + index;
+    let currentYear = currentDate.getFullYear();
+
+    renderCalendar(calendar, currentYear, currentMonth);
+
+    const nextBtn = calendar.querySelector(".next");
+    const prevBtn = calendar.querySelector(".prev");
+
+    nextBtn.addEventListener("click", function () {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      renderCalendar(calendar, currentYear, currentMonth);
+    });
+
+    prevBtn.addEventListener("click", function () {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      renderCalendar(calendar, currentYear, currentMonth);
+    });
+  });
+
+  function renderCalendar(calendar, year, month) {
+    const monthHeader = calendar.querySelector(".month-header");
+    const tableBody = calendar.querySelector("tbody");
+
+    monthHeader.textContent = new Date(year, month).toLocaleDateString(
+      "en-US",
+      { month: "long", year: "numeric" }
+    );
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDay = new Date(year, month + 1, 0).getDate();
+
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+      const row = tableBody.rows[i];
+      for (let j = 0; j < 7; j++) {
+        const cell = row.cells[j];
+        if (i === 0 && j < firstDay) {
+          cell.textContent = "";
+        } else if (date > lastDay) {
+          cell.textContent = "";
+        } else {
+          cell.textContent = date;
+          date++;
+        }
+      }
+    }
+  }
+});
+// hero-modal
+var images = [
+  "./images/s1.jpeg",
+  "./images/s2.jpeg",
+  "./images/s3.jpeg",
+  "./images/s4.jpeg",
+  "./images/s5.jpeg",
+  "./images/s6.jpeg",
+  // Add more image sources as needed
+];
+
+// Function to open the gallery modal
+document
+  .getElementById("openGalleryBtn")
+  .addEventListener("click", function () {
+    openGallery();
+  });
+
+// Function to close the gallery modal
+document.getElementById("closeGallery").addEventListener("click", function () {
+  closeGallery();
+});
+
+// Function to display the next image
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % images.length;
+  showSlide();
+}
+
+// Function to display the previous image
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showSlide();
+}
+
+// Function to open the gallery modal and show the first image
+function openGallery() {
+  currentIndex = 0;
+  showSlide();
+  document.getElementById("galleryModal").style.display = "block";
+}
+
+// Function to close the gallery modal
+function closeGallery() {
+  document.getElementById("galleryModal").style.display = "none";
+}
+
+// Function to display the current image and update the image number
+function showSlide() {
+  var slider = document.getElementById("imageSlider");
+  var imageNumber = document.getElementById("imageNumber");
+  var thumbnailContainer = document.getElementById("thumbnailContainer");
+
+  slider.innerHTML = ""; // Clear existing images
+  thumbnailContainer.innerHTML = ""; // Clear existing thumbnails
+
+  for (var i = 0; i < images.length; i++) {
+    var img = document.createElement("img");
+    img.src = images[i];
+    img.style.display = i === currentIndex ? "block" : "none";
+    slider.appendChild(img);
+
+    // Create thumbnails
+    var thumbnail = document.createElement("img");
+    thumbnail.src = images[i];
+    thumbnail.className = "thumbnail";
+    thumbnail.onclick = (function (index) {
+      return function () {
+        currentIndex = index;
+        showSlide();
+      };
+    })(i);
+    thumbnailContainer.appendChild(thumbnail);
+  }
+
+  imageNumber.textContent = currentIndex + 1 + " / " + images.length;
+}
