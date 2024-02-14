@@ -148,7 +148,6 @@ Call. 68689888</p>
       </div>
     </aside>
     <!-- modal -->
-
   <!-- hero -->
   <section class="hero">
     <div class="hero-center" id="openGalleryBtn">
@@ -162,12 +161,14 @@ Call. 68689888</p>
        </div>
         <div class="img2">
           <img src="./images/im4.jpeg"  />
-          <img src="./images/im5.jpeg"  />
+          <img src="./images/im5.jpeg"/>
         </div>
     </div>
     </div>
   </section>
   <!-- hero-modal -->
+  <!-- <button id="openGalleryBtn">Open Gallery</button> -->
+
 <!-- The Modal -->
 <div id="galleryModal" class="modal">
   <div class="modal-navbar">
@@ -281,17 +282,23 @@ readable english.
         </div>
       </div>
     </section>
-    <!-- availability -->
-      <div class="calendar-container">
-        <h1>Availabilty</h1>
-    <div class="button-container">
-    <button class="btn" onclick="prevMonth()"><i class="fas fa-left"><i class="fa-light fa-arrow-left"></i></button>
+    <!-- avail -->
+    <h1 class="hel">availability</h1>
+      <div class="button-container">
+    <button class="btn" onclick="prevMonth()"><i class="fa-light fa-arrow-left"></i></button>
     <button class="btn" onclick="nextMonth()"><i class="fa-light fa-arrow-right"></i></button>
   </div>
+     <div class="calendar-container">
 
     <div id="calendar1" class="calendar"></div>
     <div id="calendar2" class="calendar"></div>
   </div>
+<div class="legend">
+    <span class="today">● today</span>
+    <span class="available">□ available room</span>
+    <span class="no-availability">■ no availability</span>
+    <span class="selected-dates">□ selected dates</span>
+</div>
 
     <!-- section-2 -->
     <section class="services">
