@@ -22,8 +22,8 @@
         <img src="./images/logo-light.png"  class="logo"/>
               <div class="links">
       <div class="dropdown">
-        <button class="dropbtn">Rooms <i class="fas fa-chevron-down"></i></button>
-        <div class="dropdown-content">
+<button class="custom-dropdown-button" onclick="toggleDropdown('dropdown1')">Rooms <i class="fas fa-chevron-down"></i></button>
+<div id="dropdown1" class="custom-dropdown">
         <a href="#">lodge forest</a>
         <a href="#">modren hotel</a>
         <a href="#">boutique hotel</a>
@@ -148,72 +148,26 @@ Call. 68689888</p>
       </div>
     </aside>
     <!-- modal -->
-    <div id="modal-container">
-      <div id="modal-content">
-        <span id="close-btn" onclick="closeModal()">&times;</span>
-        <div class="calendar-container">
-        <div class="calendar">
-            <div class="month-header"></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Sun</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <button class="prev">&lt; Prev</button>
-            <button class="next">Next &gt;</button>
-        </div>
-        <div class="calendar">
-            <div class="month-header"></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Sun</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <button class="prev">&lt; Prev</button>
-            <button class="next">Next &gt;</button>
-        </div>
-    </div>
-    </div>
-      </div>
+
   <!-- hero -->
   <section class="hero">
-    <div class="hero-center">
+    <div class="hero-center" id="openGalleryBtn">
     <div class="con1">
-      <img src="./images/con1im.jpeg" id="openGalleryBtn"/>
+      <img src="./images/con1im.jpeg" />
     </div>
     <div class="con2">
        <div class="img1">
-        <img src="./images/im2.jpeg" id="openGalleryBtn"/>
-        <img src="./images/im3.jpeg" id="openGalleryBtn"/>
+        <img src="./images/im2.jpeg" />
+        <img src="./images/im3.jpeg"  />
        </div>
         <div class="img2">
-          <img src="./images/im4.jpeg" id="openGalleryBtn"/>
-          <img src="./images/im5.jpeg" id="openGalleryBtn"/>
+          <img src="./images/im4.jpeg"  />
+          <img src="./images/im5.jpeg"  />
         </div>
     </div>
     </div>
   </section>
   <!-- hero-modal -->
-  <!-- <button id="openGalleryBtn">Open Gallery</button> -->
-
 <!-- The Modal -->
 <div id="galleryModal" class="modal">
   <div class="modal-navbar">
@@ -327,6 +281,18 @@ readable english.
         </div>
       </div>
     </section>
+    <!-- availability -->
+      <div class="calendar-container">
+        <h1>Availabilty</h1>
+    <div class="button-container">
+    <button class="btn" onclick="prevMonth()"><i class="fas fa-left"><i class="fa-light fa-arrow-left"></i></button>
+    <button class="btn" onclick="nextMonth()"><i class="fa-light fa-arrow-right"></i></button>
+  </div>
+
+    <div id="calendar1" class="calendar"></div>
+    <div id="calendar2" class="calendar"></div>
+  </div>
+
     <!-- section-2 -->
     <section class="services">
       <h2>Additional Services</h2>

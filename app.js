@@ -7,6 +7,10 @@ function closeSidebar() {
   document.getElementById("sidebar").style.left = "-300px";
   document.getElementById("main-content").style.marginLeft = "0";
 }
+function toggleDropdown(dropdownId) {
+  var dropdown = document.getElementById(dropdownId);
+  dropdown.classList.toggle("active");
+}
 // modal
 function openModal() {
   document.getElementById("modal-container").style.display = "block";
@@ -46,67 +50,71 @@ if (content.scrollHeight > content.clientHeight) {
 }
 
 // calendar
-document.addEventListener("DOMContentLoaded", function () {
-  const calendars = document.querySelectorAll(".calendar");
+const calendar1 = document.getElementById("calendar1");
+const calendar2 = document.getElementById("calendar2");
+let currentMonth = new Date().getMonth();
 
-  calendars.forEach((calendar, index) => {
-    const currentDate = new Date();
-    let currentMonth = currentDate.getMonth() + index;
-    let currentYear = currentDate.getFullYear();
+function renderCalendar(calendar, month) {
+  const daysInMonth = new Date(
+    new Date().getFullYear(),
+    month + 1,
+    0
+  ).getDate();
+  const firstDay = new Date(new Date().getFullYear(), month, 1).getDay();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-    renderCalendar(calendar, currentYear, currentMonth);
+  calendar.innerHTML = `
+        <div class="header">${monthNames[month]}</div>
+        <div class="days">
+          <div class="day">Sun</div>
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+          ${Array.from(
+            { length: firstDay },
+            (_, index) => `<div class="day"></div>`
+          ).join("")}
+          ${Array.from(
+            { length: daysInMonth },
+            (_, index) => `<div class="day">${index + 1}</div>`
+          ).join("")}
+        </div>
+      `;
+}
 
-    const nextBtn = calendar.querySelector(".next");
-    const prevBtn = calendar.querySelector(".prev");
+function updateCalendars() {
+  renderCalendar(calendar1, currentMonth);
+  renderCalendar(calendar2, currentMonth + 1);
+}
 
-    nextBtn.addEventListener("click", function () {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      renderCalendar(calendar, currentYear, currentMonth);
-    });
+function nextMonth() {
+  currentMonth = (currentMonth + 1) % 12;
+  updateCalendars();
+}
 
-    prevBtn.addEventListener("click", function () {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      renderCalendar(calendar, currentYear, currentMonth);
-    });
-  });
+function prevMonth() {
+  currentMonth = (currentMonth - 1 + 12) % 12;
+  updateCalendars();
+}
 
-  function renderCalendar(calendar, year, month) {
-    const monthHeader = calendar.querySelector(".month-header");
-    const tableBody = calendar.querySelector("tbody");
-
-    monthHeader.textContent = new Date(year, month).toLocaleDateString(
-      "en-US",
-      { month: "long", year: "numeric" }
-    );
-
-    const firstDay = new Date(year, month, 1).getDay();
-    const lastDay = new Date(year, month + 1, 0).getDate();
-
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-      const row = tableBody.rows[i];
-      for (let j = 0; j < 7; j++) {
-        const cell = row.cells[j];
-        if (i === 0 && j < firstDay) {
-          cell.textContent = "";
-        } else if (date > lastDay) {
-          cell.textContent = "";
-        } else {
-          cell.textContent = date;
-          date++;
-        }
-      }
-    }
-  }
-});
+// Initial rendering
+updateCalendars();
 // hero-modal
 var images = [
   "./images/s1.jpeg",
@@ -184,3 +192,4 @@ function showSlide() {
 
   imageNumber.textContent = currentIndex + 1 + " / " + images.length;
 }
+// header
