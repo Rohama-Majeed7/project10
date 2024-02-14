@@ -78,15 +78,15 @@ function renderCalendar(calendar, month) {
   ];
 
   calendar.innerHTML = `
-        <div class="header">${monthNames[month]}</div>
+        <div class="header">${monthNames[month]} 2024</div>
         <div class="days">
-          <div class="day">Sun</div>
-          <div class="day">Mon</div>
-          <div class="day">Tue</div>
-          <div class="day">Wed</div>
-          <div class="day">Thu</div>
-          <div class="day">Fri</div>
-          <div class="day">Sat</div>
+          <div class="day sun">Sun</div>
+          <div class="day sun">Mon</div>
+          <div class="day sun">Tue</div>
+          <div class="day sun">Wed</div>
+          <div class="day sun">Thu</div>
+          <div class="day sun">Fri</div>
+          <div class="day sun">Sat</div>
           ${Array.from(
             { length: firstDay },
             (_, index) => `<div class="day"></div>`
