@@ -735,6 +735,29 @@ footer {
   top: 50px;
   left: 20px;
 }
+.fix-icon {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  display: flex;
+  gap: 6px;
+  flex-direction: column;
+}
+.ic {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  place-items: center;
+  padding: 7px;
+  border-radius:3px ;
+  color: black;
+  box-shadow: 2px 2px 2px 2px grey;
+  cursor: pointer;
+}
+.green {
+  background-color: #77ab33;
+  color: white;
+}
 /* ================ */
 /* Media Queries */
 @media screen and (min-width: 1100px) {
