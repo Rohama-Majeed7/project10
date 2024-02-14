@@ -1,6 +1,6 @@
 function openSidebar() {
   document.getElementById("sidebar").style.left = "0";
-  document.getElementById("sidebar").style.visibility = "";
+  document.getElementById("sidebar").style.visibility = "visible";
   document.getElementById("main-content").style.marginLeft = "250px";
 }
 
