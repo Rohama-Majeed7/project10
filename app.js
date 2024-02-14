@@ -1,10 +1,11 @@
 function openSidebar() {
   document.getElementById("sidebar").style.left = "0";
+  document.getElementById("sidebar").style.visibility = "visible";
   document.getElementById("main-content").style.marginLeft = "250px";
 }
 
 function closeSidebar() {
-  document.getElementById("sidebar").style.left = "-300px";
+  document.getElementById("sidebar").style.left = "-100%";
   document.getElementById("main-content").style.marginLeft = "0";
 }
 function toggleDropdown(dropdownId) {
