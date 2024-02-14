@@ -119,7 +119,8 @@ body {
 /* Sidebar Styles */
 #sidebar {
   height: 100vh;
-  width: 250px;
+  max-width: 300px;
+  width: 90%;
   position: fixed;
   top: 0;
   left: 0%;
@@ -177,7 +178,7 @@ body {
 }
 
 .side-contact {
-  margin-top: 4rem;
+  margin-top: 10.5rem;
 }
 
 .side-center {
